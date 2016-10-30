@@ -3,9 +3,17 @@ patat
 
 [![Build Status](https://img.shields.io/travis/jaspervdj/patat.svg)](https://travis-ci.org/jaspervdj/patat) [![Hackage](https://img.shields.io/hackage/v/patat.svg)](https://hackage.haskell.org/package/patat) [![GitHub tag](https://img.shields.io/github/tag/jaspervdj/patat.svg)]()
 
-`patat` (**P**resentations **A**top **T**he **A**NSI **T**erminal) is a small
-tool that allows you to show presentations using only an ANSI terminal.  It does
-not require `ncurses`.
+- [DESCRIPTION](#description)
+- [INSTALLATION](#installation)
+- [OPTIONS](#options)
+- [THEMING](#theming)
+- [TRIVIA](#trivia)
+
+DESCRIPTION
+===========
+
+`patat` is a small tool that allows you to show presentations using only an ANSI
+terminal.  It does not require `ncurses`.
 
 Features:
 
@@ -26,54 +34,8 @@ Features:
 [Haskell]: http://haskell.org/
 [Pandoc]: http://pandoc.org/
 
-Table of Contents
------------------
-
--   [Installation](#installation)
-    -   [Using stack](#using-stack)
-    -   [Using cabal](#using-cabal)
--   [Running](#running)
--   [Input format](#input-format)
--   [Configuration](#configuration)
-    -   [Theming](#theming)
-    -   [Syntax Highlighting](#syntax-highlighting)
--   [Trivia](#trivia)
-
-Installation
-------------
-
-You can build from source using `stack install` or `cabal install`.  `patat` is
-also available from [Hackage].
-
-[Hackage]: https://hackage.haskell.org/package/patat
-
-For people unfamiliar with the Haskell ecosystem, this means you can do either
-of the following:
-
-### Using stack
-
-1. Install [stack] for your platform.
-2. Clone this repository.
-3. Run `stack setup` (if you're running stack for the first time) and
-   `stack install`.
-4. Make sure `$HOME/.local/bin` is in your `$PATH`.
-
-[stack]: https://docs.haskellstack.org/en/stable/README/
-
-### Using cabal
-
-1. Install [cabal] for your platform.
-2. Run `cabal install patat`.
-3. Make sure `$HOME/.cabal/bin` is in your `$PATH`.
-
-[cabal]: https://www.haskell.org/cabal/
-
-Running
--------
-
-    patat [--watch] presentation.md
-
-Controls:
+Controls
+--------
 
 - **Next slide**: `space`, `enter`, `l`, `→`
 - **Previous slide**: `backspace`, `h`, `←`
@@ -87,10 +49,6 @@ Controls:
 The `r` key is very useful since it allows you to preview your slides while you
 are writing them.  You can also use this to fix artifacts when the terminal is
 resized.
-
-If you provide the `--watch` flag, `patat` will watch the presentation file for
-changes and reload automatically.  This is very useful when you are writing the
-presentation.
 
 Input format
 ------------
@@ -171,9 +129,63 @@ Or we can use a normal presentation and have the following `$HOME/.patat.yaml`:
 
     wrap: true
 
-### Theming
+INSTALLATION
+============
 
-Colors and other properties can also be changed using this configuration.  For
+You can build from source using `stack install` or `cabal install`.  `patat` is
+also available from [Hackage].
+
+[Hackage]: https://hackage.haskell.org/package/patat
+
+For people unfamiliar with the Haskell ecosystem, this means you can do either
+of the following:
+
+Using stack
+-----------
+
+1. Install [stack] for your platform.
+2. Clone this repository.
+3. Run `stack setup` (if you're running stack for the first time) and
+   `stack install`.
+4. Make sure `$HOME/.local/bin` is in your `$PATH`.
+
+[stack]: https://docs.haskellstack.org/en/stable/README/
+
+Using cabal
+-----------
+
+1. Install [cabal] for your platform.
+2. Run `cabal install patat`.
+3. Make sure `$HOME/.cabal/bin` is in your `$PATH`.
+
+[cabal]: https://www.haskell.org/cabal/
+
+OPTIONS
+=======
+
+`-w`, `--watch`
+
+:   If you provide the `--watch` flag, `patat` will watch the presentation file
+    for changes and reload automatically.  This is very useful when you are
+    writing the presentation.
+
+`-f`, `--force`
+
+:   Run the presentation even if the terminal claims it does not support ANSI
+    features.
+
+`-d`, `--dump`
+
+:   Just dump all the slides to stdout.  This is useful for debugging.
+
+`--version`
+
+:   Display version information.
+
+THEMING
+=======
+
+Colors and other properties can also be changed using the configuration.  For
 example, we can have:
 
     ---
@@ -272,8 +284,8 @@ an obvious way.
 
 [this list]: https://hackage.haskell.org/package/highlighting-kate-0.6.3/docs/Text-Highlighting-Kate-Types.html#t:TokenType
 
-Trivia
-------
+TRIVIA
+======
 
 _"Patat"_ is the Flemish word for a simple potato.  Dutch people also use it to
 refer to French Fries but I don't really do that -- in Belgium we just call
@@ -288,3 +300,4 @@ Lastly, I also prefer not to install Node.js on my machine if I can avoid it.
 [MDP]: https://github.com/visit1985/mdp
 [VTMC]: https://github.com/jclulow/vtmc
 [Literate Haskell]: https://wiki.haskell.org/Literate_programming
+

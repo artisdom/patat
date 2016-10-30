@@ -1,0 +1,4 @@
+SYNOPSIS
+========
+
+`patat` [*options*] file
